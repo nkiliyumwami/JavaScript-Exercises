@@ -269,6 +269,17 @@ while (count < colors.length){
   count++;
 }
 
+// For Loop Array exercise
+
+var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 14];
+for(var i = 1; i <= 14; i++){
+  if (i % 3 === 0) {
+    alert(i);
+  }
+}
+
+// This and most of other exercise here are from Udemy course ya Ernest)
+
 
 
 
