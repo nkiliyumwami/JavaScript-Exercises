@@ -245,7 +245,7 @@ console.log("OK, YOU QUIT THE APP");
 // ARRAY ITERATION 
 // LOOP INTO IN AN ARRAY USING "FOR"
 
-
+/*
 var colors = [ "red", "orange", "yellow", "green" ];
 for(var i = 0; i < colors.length; i++){
   alert(colors[i]);
@@ -279,19 +279,75 @@ for(var i = 1; i <= 14; i++){
 }
 
 // This and most of other exercise here are from Udemy course ya Ernest)
+*/
+
+// TO DO LIST APP
+
+var todos =["Buy New Turtle"];
+
+var input = prompt("What would like to do ?");
+// ask until the user type "quit"
+while(input !== "quit"){
+
+// handle input
+
+if(input === "list"){
+  //print out each line separately
+    printList();
+  
+} else if (input ==="new"){
+  //ask for new todo
+    addToDo();
+  
+  } else if (input === "delete") {
+    //ask for index of todo to be deleted
+    deleteToDo();
+    
+  }
+    //ask again for new input
+    input = prompt("what would you like to do ?");
+} 
+
+
+console.log("OK, YOU QUIT THE APP")
+
+function printList() {
+  console.log("**********");
+  todos.forEach(function(todo, i){
+    console.log( i + ": " + todo);
+  });
+  console.log("**********");
+}
+
+function addToDo(){
+  var newTodo = prompt("Enter new todo");
+  // add to todos array
+  todos.push(newTodo);
+  console.log("Added Todo");
+}
+
+function deleteToDo(){
+  var index = prompt("Enter index of todo to delete");
+    //delete that todo
+    todos.splice(index,1);
+    console.log("Deleted Todo");
+}
+
+
+function reverse(){
+  var num =[1,2,3,4,5,6];
+  var result = num.reverse();
+
+    for(result = 1; result <= 6; result++){
+       console.log(result);
+    }
+}
+reverse()
+  
 
 
 
-
-
-
-
-
-
-
-
-
-
+   
 
 
 
