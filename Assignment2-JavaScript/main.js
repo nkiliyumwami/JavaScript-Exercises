@@ -159,15 +159,6 @@ console.log(simpleReverse("Good Morning"));
   Hint: Looking for max, min -> max - min.
 */
 
-//My original version(NOT WORKING !!!)
-
-function findDiff(array) {
-  var solution = Math.max(array) - Math.min(array);
-  return solution;
-}
-findDiff([1, 2, 3, 4, 5, 6]);
-
-// With some research on internet.. WORKING!!
 
 function findDiff(numbers) {
   // var numbers = [1,2,3,4,5 ];
@@ -195,7 +186,7 @@ function timeConvert(num) {
 
 timeConvert(125);
 
-//This is much better!
+//other solution 1
 function timeConvert(num) {
   var hour = (num - (num % 60)) / 60;
   var minutes = num % 60;
@@ -203,3 +194,110 @@ function timeConvert(num) {
   return solution;
 }
 timeConvert(72);
+
+//Best solution
+function timeConvert(num) {
+  // hours
+  var hour = parseInt(num / 60);
+  // minutes
+  var min = num % 60;
+  // combine them
+  return hour + ":" + min;
+}
+
+// console.log(timeConvert(59));
+// Q9 Write the function findStr(str, long) taking two strings as parameters
+// and return how many str you can find in long. Assume Str is not empty string.
+function findStr(str, long) {
+  // Solution 1
+  // var longLength = long.length;
+  // var strLength = str.length;
+  // // counter to count the number of str in long
+  // var counter = 0;
+  // for (var i = 0; i <= longLength - strLength; i++) {
+  //   if (str === long.slice(i, i + str.length)) {
+  //     counter++;
+  //   }
+  // }
+  // return counter;
+
+  // Solution 2
+  return long.split(str).length - 1;
+}
+
+// console.log(findStr("hi", "dasdhidasdahidashi"));
+
+// Q10 Write the function selfDividingNumbers(left, right) taking two number
+// bound as parameters and returns an array of every possible self dividing
+// number between them, including the bounds.
+function selfDividingNumbers(left, right) {
+  // loop from left to right
+  var solution = [];
+  for (var i = left; i <= right; i++) {
+    // check if current number is self-dividing number
+    if (checkSelfDividing(i)) {
+      solution.push(i);
+    }
+  }
+
+  return solution;
+}
+
+// helper function to check if the num is self-dividing
+function checkSelfDividing(num) {
+  // change number into string foramat
+  var numString = num.toString();
+  // Split string into array of char
+  var numArray = numString.split("");
+
+  var length = numArray.length;
+  for (var i = 0; i < length; i++) {
+    // if num is not divisible by any digit
+    if (num % ParseInt(numArray[i]) !== 0) {
+      return false;
+    }
+  }
+  // if num is divisible by all digits
+  return true;
+}
+
+// 11. Write the function moveZeros(nums) taking an array of numbers and
+// move all 0’s to the end of it while maintaining the relative order of the
+// non-zero elements.
+function moveZeros(nums) {
+  var solution = [];
+  var counter = 0;
+  var length = nums.length;
+  // loop through the array
+  for (var i = 0; i < length; i++) {
+    if (nums[i] === 0) {
+      counter++;
+    } else {
+      solution.push(nums[i]);
+    }
+  }
+
+  // adding 0s
+  while (counter > 0) {
+    solution.push(0);
+    counter--;
+  }
+
+  return solution;
+}
+
+// Q12 Create an average(nums) function that calculates
+// the average of an array of numbers.
+function average(nums) {
+  // get the sum
+  var sum = 0;
+  var length = nums.length;
+  for (var i = 0; i < length; i++) {
+    sum += nums[i];
+  }
+
+  // sum / length
+  return sum / length;
+}
+
+
